@@ -6,10 +6,10 @@
 # class Sports
 # end
 
-# #this is the most basic way of initializing an instance variable of the class Sport
+# #basic way of initializing an instance variable of the class Sport
 # new_sport = Sports.new
-# #this is how you can call/initialize your class
-# #the data type of this is Sports
+
+
 
 # #steps that a class takes when initialized
 # #after calling the class
@@ -32,11 +32,11 @@
 
 
 # #if we want to make a Sports class and use an attr_accessor
-# #it will look like this
+# #the code below shows how to
 # class Sports
 
 #   attr_accessor :players
-#   #this attr_accessor asks what getter/setter methods to create.
+#   #attr_accessor asks what getter/setter methods to create.
 #   #the two methods below are the methods that attr_accessor writes.
 
 #   # def players
@@ -50,7 +50,7 @@
 
 
 # end
-# #this is how we would initalize the class and call the attr_accessor on the new_sport
+# #how we would initalize the class and call the attr_accessor on the new_sport
 # new_sport = Sports.new
 # new_sport.players
 
@@ -83,8 +83,10 @@
 
 # end
 
-# #to call the class Football
+# #to initialize the class Football
 # football_team = Football.new 0, 11
+#we initialize the class of Football with two arguments 0 and 11
+# and assign it to the variable football_team
 
 
 #make a new class
@@ -109,6 +111,70 @@ new_cat = Cat.new 5, "Kittens" #this will make a new cat in the class of Cat wit
 thing = new_cat.weight=9
 new_cat.purr #this will call the method purr onto the new_cat
 puts thing
+
+
+
+
+
+
+#updates 9/29/14
+
+#calling the .self within a method
+#you call it by doint self.a_method
+#self inside a method it refers to the instance of that class.
+  #for example temp_in_room
+  #the .self is an object, and refers to an instance
+  #temp_outside = Celsius.new(30)
+  #temp_outside.report
+  #becomes useful when caling methods within methods
+
+#in a mthod name, refers to the class as a whole
+
+
+#add method to a Celsius class
+
+
+
+class Celcius
+
+#below is a counter that keeps track of how many instances exist
+#it is a class variable
+#class variables: @@
+@@counter = 0
+
+def initialize(temp_in_c)
+  @temp_in_c = temp_in_c
+  #every time we initialize a enw instance
+  #we increment the counter by 1
+  @counter = @counter + 1
+end
+
+
+#self inside a method refers to instance that the method is being called on
+#this is an instance method because it doesnt begin with self
+def report
+  "the temperature is #{@temp_in_c} Celsius or #{self.to_fahrenheit} Fahrenheit"
+end
+
+
+def self.about_history #self is in the method name refers to the class a whole or collection
+  "Celcius is a way to measure heat: 0 is freezing pt, 100 is boiling point"
+end
+
+
+#keep track of how many instances you have initialized using the class variable of counter
+def self.how_many_objects
+  "there are #{@@counter} temperatures in your collection"
+end
+
+end
+
+puts Celcius.about_history # will put the self.about_history stuff
+puts Celcius.how_many_objects
+
+
+
+
 
 
 
